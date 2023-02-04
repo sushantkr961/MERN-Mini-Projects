@@ -54,6 +54,6 @@
 
 - Use flex in the div with class `calender` to create this layout. Also when the screensize is less than or equal to 900px the flex-direction should change to column.
 
-### Optional Feature (Not in Testcases):-
+### Optional Feature :-
 
 - Each todo card also has a button with the text `Delete`. Clicking on the button that perticular card should be deleted both from DOM and from localStoarge.
