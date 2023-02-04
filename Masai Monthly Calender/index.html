@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Style/navbar.css" />
+    <link rel="stylesheet" href="./Style/index.css" />
+    <title>Masai Calender</title>
+  </head>
+  <body>
+    <div id="navbar">
+      <h2>Masai Calender</h2>
+      <div>
+        <a href="./index.html">
+          <h2>Home</h2>
+        </a>
+        <a href="./calender.html">
+          <h2>Calender</h2>
+        </a>
+      </div>
+    </div>
+    <div id="create">
+      <h1>Create A Meet</h1>
+      <form onsubmit="handleSubmit(event)">
+        <input id="name" placeholder="Name" type="text" />
+        <textarea
+          placeholder="Description"
+          id="desc"
+          rows="4"
+          cols="50"
+        ></textarea>
+        <select id="month">
+          <option value="">Select Month</option>
+          <option value="January">January</option>
+          <option value="February">February</option>
+          <option value="March">March</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="June">June</option>
+          <option value="July">July</option>
+          <option value="August">August</option>
+          <option value="September">September</option>
+          <option value="October">October</option>
+          <option value="November">November</option>
+          <option value="December">December</option>
+        </select>
+        <select id="week">
+          <option value="">Select Week</option>
+          <option value="Week-1">Week-1</option>
+          <option value="Week-2">Week-2</option>
+          <option value="Week-3">Week-3</option>
+          <option value="Week-4">Week-4</option>
+        </select>
+        <select id="meetType">
+          <option value="">Select Meet Type</option>
+          <option value="Offline">Offline</option>
+          <option value="Zoom">Zoom</option>
+          <option value="Google Meet">Google Meet</option>
+        </select>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+  <script src="./Scripts/index.js"></script>
+</html>

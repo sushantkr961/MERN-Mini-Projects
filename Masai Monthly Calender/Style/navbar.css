@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+#navbar div {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
