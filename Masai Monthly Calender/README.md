@@ -1,46 +1,4 @@
-# WEB - Masai Monthly Calender
-
-## Submission Instructions [Please note]
-
-## Maximum Marks - 20
-
-- The Submission should not contain spaces, for example,/js-101 folder/eval will not work
-
-```
- ✅ able to submit the app - 1 mark ( minimum score )
- ✅ Form Submit Storing Data is LS - 2 marks.
- ✅ Check the LS Data after mutiple form submits - 2 marks.
- ✅ By Default only the January Cards are showing in appropriate Week Column  - 3 marks.
- ✅ Check the flex value and the responsiveness of the calender Columns  - 2 marks.
- ✅ Check the board after changing the week  - 3 marks.
- ✅ Change the month and check the board - 3 mark.
- ✅ Chage the week again after month changing - 4 marks.
-```
-
-## Installation
-
-- you can use any node version that works for you ( 14+ )
-- Download and unzip the boilerplate
-- Navigate to the correct path
-
-## Folder structure
-
-- index.html
-- calender.html
-- Scripts/index.js
-- Scripts/calender.js
-- Styles(This is a Folder. Create all your CSS files inside this folder)
-- Please ignore all the other files/folders except the above-mentioned ones.
-
-### You haven't taught cypress to run the test cases locally, you can see the passed/ failed test cases and test errors on CP itself.
-
-#### Use the template provided below to write your code (Mandatory)
-
-## Some Rules to follow:-
-
-- Before writing a single line of code please read the problem statement very carefully.
-- Don't change the already given ids or classes.
-- If you don't follow these rules you might not get any marks even if you do everything correctly.
+# Masai Monthly Calender
 
 ## Problem Statement:-
 
@@ -90,22 +48,6 @@
 
 ![image](https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-01-18/Screenshot%202023-01-18%20at%205.15.48%20PM_393423.png)
 
-- Below is the format for the meet cards.
-
-```
-<div>
- <p>name</p>
- <p>desc</p>
- <p>meetType</p>
- <select>
-    <option value="Week-1">Week-1</option>
-    <option value="Week-2">Week-2</option>
-    <option value="Week-3">Week-3</option>
-    <option value="Week-4">Week-4</option>
-  </select>
-</div>
-```
-
 - If the user changes the select tag value of any card, the localStorage and DOM should be updated.
 
 ![image](https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-01-18/Screenshot%202023-01-18%20at%205.16.09%20PM_659231.png)
@@ -115,10 +57,3 @@
 ### Optional Feature (Not in Testcases):-
 
 - Each todo card also has a button with the text `Delete`. Clicking on the button that perticular card should be deleted both from DOM and from localStoarge.
-
-### General guidelines
-
-- The system on cp.masaischool.com may take between 1-20 minutes for responding,
-- so we request you to read the problem carefully and debug it before itself
-- we also request you not just submit it last minute
-- try to keep one submission at a time
