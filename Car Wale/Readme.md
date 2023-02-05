@@ -4,3 +4,6 @@
 
 ## Tech Stacks
 - HTML, CSS, JavaScript, json server, vercel, Netlify
+
+## Demo Link
+https://magenta-unicorn-017ab7.netlify.app/
