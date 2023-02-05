@@ -1,4 +1,4 @@
-# Masai Monthly Calender
+# Monthly Calender
 
 ## Problem Statement:-
 
@@ -18,8 +18,6 @@
 5. MeetType (Select)
 
 - On clicking on form submit (form submit event) you should store todo data in your local storage with key `meets`.
-
-`Hint : localStorage.setItem("meets",JSON.stringify)`
 
 - Refer to this image for better understanding:- ![form.png](https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-01-18/Screenshot%202023-01-18%20at%205.12.07%20PM_216301.png)
 
