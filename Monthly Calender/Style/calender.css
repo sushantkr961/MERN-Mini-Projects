@@ -46,7 +46,7 @@ button,#weekUpdate {
 
 p{
     margin: 10px;
-    text-transform: capitalize;
+    text-transform:none
 }
 
 @media only screen and (max-width: 900px) {
