@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Cars - CarWale</title>
+    <link rel="stylesheet" href="Ad.css" />
+    <link
+      rel="icon"
+      href="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f694.svg"
+    />
+  </head>
+  <body>
+    <nav>
+      <a href="index.html"><h1>CarWale</h1></a>
+      <ul>
+        <a href="Ad.html"><li>Add</li></a>
+        <a href="index.html"><li>Cars</li></a>
+        <a href="wishlist.html"><li>Wishlist</li></a>
+      </ul>
+    </nav>
+    <h1>Add Cars</h1>
+    <form id="car-form">
+      <label for="price">Image Url:</label>
+      <input type="url" id="image" name="image" required /><br />
+
+      <label for="brand">Brand of car:</label>
+      <input type="text" id="brand" name="brand" required />
+      <br />
+
+      <label for="transmission">Transmission:</label>
+      <select id="transmission" name="transmission">
+        <option value="Manual">Manual</option>
+        <option value="Automated">Automated</option></select
+      ><br />
+
+      <label for="year">Year of purchase:</label>
+      <select id="year" name="year">
+        <option>Select Year</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+        <option value="2018">2018</option>
+        <option value="2017">2017</option>
+        <option value="2016">2016</option>
+        <option value="2015">2015</option>
+        <option value="2014">2014</option>
+        <option value="2013">2013</option>
+        <option value="2012">2012</option>
+        <option value="2011">2011</option>
+        <option value="2010">2010</option>
+      </select>
+      <br />
+      <label for="km">KM driven:</label>
+      <input type="number" id="km" name="km" required /><br />
+
+      <label for="price">Price:</label>
+      <input type="number" id="price" name="price" required /><br />
+
+      <label for="description">Description:</label> <br />
+      <textarea id="description" name="description" rows="5" required></textarea
+      ><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script src="Ad.js"></script>
+  </body>
+</html>
