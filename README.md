@@ -6,4 +6,4 @@
 1. Infinite Scrolling - https://cheery-gingersnap-3e51e0.netlify.app/
 2. Monthly Calender - https://verdant-concha-94cbfe.netlify.app/
 3. Car Waale - https://magenta-unicorn-017ab7.netlify.app/
-4. Sk Mart - 
+4. Sk Mart - https://singular-liger-3e8394.netlify.app/
