@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#navbar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+}
+#navbar a {
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+}
+#container {
+  width: 82%;
+  margin: auto;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-rows: repeat(3, 1fr); */
+}
+
+#sortFilter {
+  text-align: center;
+}
+
+#pagination-container{
+    text-align: center;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 15px;
+}
+p {
+  margin-top: 5px;
+}
+
+.products {
+  border: 1px solid green;
+  padding: 20px;
+  text-transform: capitalize;
+}
+.icon {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.wish {
+  font-size: 25px;
+  cursor: pointer;
+  color: red;
+}
+
+select,
+button {
+  padding: 10px 20px;
+  margin: 15px 10px 30px 10px;
+}
+
+#pagination {
+  text-align: center;
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+  #container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  #container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  #navbar {
+    height: fit-content;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    text-align: start;
+    justify-content: space-around;
+  }
+}

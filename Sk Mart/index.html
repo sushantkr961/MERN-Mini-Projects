@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sk Mart</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="https://th.bing.com/th/id/OIP.dxGtEkSszh5VWIJ4uWWFRgHaFj?w=231&h=180&c=7&r=0&o=5&dpr=1.1&pid=1.7"
+    />
+  </head>
+  <body>
+    <nav id="navbar">
+      <a href="index.html">Sk Mart</a>
+      <a href="index.html">Products</a>
+      <a href="wishlisht.html">Wishlist</a>
+    </nav>
+    <div id="sortFilter">
+      <select id="filter">
+        <option value="">All</option>
+        <option value="men">Men</option>
+        <option value="women">women</option>
+        <option value="kids">kids</option>
+        <option value="homedecor">Homedecor</option>
+      </select>
+      <select id="price">
+        <option value="">Sort by Price</option>
+        <option value="asc">Low to High</option>
+        <option value="des">High to Low</option>
+      </select>
+    </div>
+
+    <div id="container"></div>
+
+    <div id="pagination">
+      <button class="prev">Prev</button>
+      <button class="next">Next</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
