@@ -1,0 +1,50 @@
+h1{
+  text-align: center;
+}
+
+form {
+  width: 400px;
+  margin: auto;
+  text-align: center;
+  padding: 50px 30px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+label {
+  font-size: larger;
+  font-weight: 600;
+}
+
+input {
+  padding: 7px 20px;
+  font-size: large;
+  margin-bottom: 20px;
+  width: 70%;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: large;
+  font-weight: 600;
+  margin: 20px 10px 0 10px;
+  cursor: pointer;
+}
+
+ol {
+  width: 400px;
+  margin: auto;
+  height: 350px;
+  font-size: larger;
+}
+
+p{
+  text-align: center;
+  font-size: large;
+  font-weight: 600;
+  color: red;
+}
+
+.account{
+  color: blue;
+}
