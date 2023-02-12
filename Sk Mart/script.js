@@ -16,7 +16,7 @@ let fetchData = async (filter = "", limit = 12) => {
       `https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products?&filter=${filter}&limit=${limit}&page=${page}`
     );
     const data = await res.json();
-    // console.log(data.data);
+    console.log(data.data);
     // console.log(data.totalPages);
     showData(data.data);
     output = [...data.data];
