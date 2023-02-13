@@ -6,7 +6,7 @@ Demo Link - https://enchanting-llama-250936.netlify.app/
 ## Login Page
 <a href="https://ibb.co/SNQgB2m"><img src="https://i.ibb.co/xhmb6yg/login.jpg" alt="login" border="0"></a>
 ## Task Page
-<a href="https://ibb.co/mcrhTcV"><img src="https://i.ibb.co/yQmgPQc/tasks.jpg" alt="tasks" border="0"></a>
+<a href="https://ibb.co/mcrhTcV"><img src="https://i.ibb.co/yQmgPQc/tasks.jpg" alt="tasks" border="0"></a> </br>
 User can add only 5 task at a time.
 ## Tech Stack
 HTML, CSS, React.js, json-server
