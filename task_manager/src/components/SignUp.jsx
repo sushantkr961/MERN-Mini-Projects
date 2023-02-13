@@ -45,6 +45,7 @@ const SignUp = () => {
   return (
     <>
       <h1>Register</h1>
+      {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username:</label> <br />
@@ -86,7 +87,7 @@ const SignUp = () => {
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
         </div>
-        {error && <div>{error}</div>}
+        
         <button type="submit">Sign Up</button>
         <p className="account">Already have a account <Link to={"/login"}>Login</Link></p>
       </form>
