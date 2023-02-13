@@ -25,6 +25,7 @@ const Login = () => {
       if (data.length === 0) {
         setError("Email or password is incorrect");
       } else {
+        localStorage.setItem('user', data);
         navigate("/tasks");
       }
     } catch (error) {
@@ -35,23 +36,25 @@ const Login = () => {
 
   return (
     <>
-    <h1>Login</h1>
     <div>
-      {error && <p>{error}</p>}
+      
       <form onSubmit={handleLogin}>
-      <label htmlFor="email">Email:</label> <br />
+      {error && <p>{error}</p>}
+      <span>Welcome !</span>
+      <h1>Login</h1>
+      <label htmlFor="email">Email</label> <br />
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         /> <br />
-        <label htmlFor="email">Password:</label> <br />
+        <label htmlFor="email">Password</label> <br />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         /> <br />
-        <button type="submit">Login</button>
+        <input type="submit" value="Login" />
         <p className="account">Don't have a account <Link to={"/"}>Register</Link></p>
       </form>
     </div>

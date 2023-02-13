@@ -44,11 +44,13 @@ const SignUp = () => {
 
   return (
     <>
-      <h1>Register</h1>
-      {error && <p>{error}</p>}
+      
       <form onSubmit={handleSubmit}>
+      {error && <p>{error}</p>}
+      <span>Welcome !</span>
+      <h1>Sign up</h1>
         <div>
-          <label htmlFor="username">Username:</label> <br />
+          <label htmlFor="username">Username</label> <br />
           <input
             required
             type="text"
@@ -58,7 +60,7 @@ const SignUp = () => {
           />
         </div>
         <div>
-          <label htmlFor="email">Email:</label> <br />
+          <label htmlFor="email">Email</label> <br />
           <input
             required
             type="email"
@@ -68,7 +70,7 @@ const SignUp = () => {
           />
         </div>
         <div>
-          <label htmlFor="password">Password:</label> <br />
+          <label htmlFor="password">Password</label> <br />
           <input
             required
             type="password"
@@ -78,7 +80,7 @@ const SignUp = () => {
           />
         </div>
         <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label> <br />
+          <label htmlFor="confirmPassword">Confirm Password</label> <br />
           <input
             required
             type="password"
@@ -87,9 +89,8 @@ const SignUp = () => {
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
         </div>
-        
-        <button type="submit">Sign Up</button>
-        <p className="account">Already have a account <Link to={"/login"}>Login</Link></p>
+        <input type="submit" value="Sign Up" />
+        <p className="account">Already have a account? <Link to={"/login"}>Login</Link></p>
       </form>
     </>
   );

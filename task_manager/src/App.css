@@ -1,14 +1,21 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 h1{
-  text-align: center;
+  text-align: start;
+  margin: 10px 0 10px 0;
 }
 
 form {
-  width: 400px;
+  width: 500px;
   margin: auto;
-  text-align: center;
-  padding: 50px 30px;
+  margin-top: 100px;
+  padding: 50px;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
 label {
@@ -20,31 +27,70 @@ input {
   padding: 7px 20px;
   font-size: large;
   margin-bottom: 20px;
-  width: 70%;
+  width: 100%;
 }
 
-button {
+input[type=submit] {
+  background-color: black;
+  border: none;
+  color: white;
   padding: 10px 20px;
-  font-size: large;
-  font-weight: 600;
-  margin: 20px 10px 0 10px;
   cursor: pointer;
+  margin-top: 10px;
 }
 
-ol {
-  width: 400px;
-  margin: auto;
-  height: 350px;
+.logout {
+  padding: 7px 15px;
+  font-size: medium;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+.del{
+  background-color: none;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+ul {
   font-size: larger;
+  list-style: none;
+}
+
+li{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
 }
 
 p{
   text-align: center;
   font-size: large;
   font-weight: 600;
+  margin-bottom: 10px;
   color: red;
 }
 
 .account{
   color: blue;
+}
+
+span {
+  font-size: xx-large;
+  font-weight: 500;
+}
+
+.flexy{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tasklist{
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 50px;
+  height: 235px;
 }

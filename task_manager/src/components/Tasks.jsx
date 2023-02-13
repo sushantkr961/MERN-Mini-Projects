@@ -82,9 +82,32 @@ const Tasks = () => {
 
   return (
     <>
-      <h1>Task Manager</h1>
       <div>
         <form onSubmit={handleAddTask}>
+          
+          <div className="flexy">
+            <h2>Task Manager</h2>
+            <button className="logout" onClick={handleLogout}>Logout</button>
+          </div>
+
+          <div className="tasklist">
+          {error && <p>{error}</p>}
+            <ul>
+              {tasks.map((task) => (
+                <li key={task.id}>
+                  {task.task}
+                  <button
+                  className="del"
+                    type="button"
+                    onClick={() => handleDeleteTask(task.id)}
+                  >
+                    &#10006;
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <input
             required
             placeholder="Enter Task"
@@ -92,20 +115,8 @@ const Tasks = () => {
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
           />
-          <button type="submit">Add Task</button>
-          <button onClick={handleLogout}>Logout</button>
+          <input type="submit" value="Add Task" />
         </form>
-        {error && <p>{error}</p>}
-        <ol>
-          {tasks.map((task) => (
-            <li key={task.id}>
-              {task.task}
-              <button type="button" onClick={() => handleDeleteTask(task.id)}>
-                Delete
-              </button>
-            </li>
-          ))}
-        </ol>
       </div>
     </>
   );
