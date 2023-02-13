@@ -86,7 +86,7 @@ const Tasks = () => {
         <form onSubmit={handleAddTask}>
           
           <div className="flexy">
-            <h2>Task Manager</h2>
+            <span>Hello !</span>
             <button className="logout" onClick={handleLogout}>Logout</button>
           </div>
 
