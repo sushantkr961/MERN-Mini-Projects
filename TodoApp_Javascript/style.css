@@ -1,0 +1,26 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+ul{
+    list-style: none;
+}
+
+#new-task {
+    padding: 10px 13px;
+    font-size: large;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+#add-task{
+    padding: 10px 15px;
+    font-size: large;
+    color: black;
+    background: white;
+    border: none;
+}
