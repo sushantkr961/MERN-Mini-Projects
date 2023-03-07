@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -8,31 +9,55 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  const handleLogin = (event) => {
+    event.preventDefault();
 
-    // Check if the user with the given email and password exists in the JSON server
-
-    try {
-      const response = await fetch(
-        "https://mock-6-api.vercel.app/users?email=" +
-          email +
-          "&password=" +
-          password
-      );
-      const data = await response.json();
-
-      if (data.length === 0) {
-        setError("Email or password is incorrect");
-      } else {
-        localStorage.setItem('user', data);
-        navigate("/tasks");
-      }
-    } catch (error) {
-      // console.error(error);
-    }
+    axios
+      .get("http://localhost:3000/users", {
+        params: {
+          email,
+          password,
+        },
+      })
+      .then((response) => {
+        if (response.data.length === 0) {
+          setError("Email or password is incorrect");
+          return;
+        }
+        console.log(response.data)
+        navigate("/profile")
+      })
+      .catch((error) => {
+        console.error(error);
+      });
 
   };
+
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+
+  //   // Check if the user with the given email and password exists in the JSON server
+
+  //   try {
+  //     const response = await fetch(
+  //       "https://mock-6-api.vercel.app/users?email=" +
+  //         email +
+  //         "&password=" +
+  //         password
+  //     );
+  //     const data = await response.json();
+
+  //     if (data.length === 0) {
+  //       setError("Email or password is incorrect");
+  //     } else {
+  //       console.log(data)
+  //       navigate("/tasks");
+  //     }
+  //   } catch (error) {
+  //     // console.error(error);
+  //   }
+
+  // };
 
   return (
     <>
