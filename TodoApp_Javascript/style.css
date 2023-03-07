@@ -11,16 +11,33 @@ ul{
 }
 
 #new-task {
-    padding: 10px 13px;
-    font-size: large;
-    border: 1px solid gray;
-    border-radius: 5px;
+    padding: 15px 15px;
+    font-size: larger;
+    border: none;
 }
 
 #add-task{
-    padding: 10px 15px;
-    font-size: large;
+    padding: 7px 15px;
+    font-size: xx-large;
     color: black;
     background: white;
     border: none;
+    cursor: pointer;
+}
+
+:focus{
+    outline: none;
+}
+
+#add-task:hover{
+    background: black;
+    color: white;
+}
+
+#inputData {
+    width: fit-content;
+    border: 1px solid gray;
+    margin: auto;
+    border-radius: 5px;
+    padding: 7px 13px;
 }
