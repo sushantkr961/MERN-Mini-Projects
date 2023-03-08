@@ -6,10 +6,12 @@ const tasks = JSON.parse(localStorage.getItem("allTasks")) || [];
 addTaskButton.addEventListener("click", () => {
   const task = document.createElement("li");
   const taskText = document.createElement("span");
+  taskText.setAttribute("class", "span");
   taskText.innerText = newTaskInput.value;
   task.appendChild(taskText);
 
   const completeCheckbox = document.createElement("input");
+  completeCheckbox.setAttribute("class", "check");
   completeCheckbox.type = "checkbox";
   completeCheckbox.addEventListener("change", () => {
     const taskIndex = tasks.findIndex((t) => t.text === taskText.innerText);
@@ -19,6 +21,7 @@ addTaskButton.addEventListener("click", () => {
   task.appendChild(completeCheckbox);
 
   const deleteButton = document.createElement("button");
+  deleteButton.setAttribute("class", "delete");
   deleteButton.innerHTML = "&#10006";
   deleteButton.addEventListener("click", () => {
     task.remove();
