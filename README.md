@@ -8,4 +8,4 @@
 3. Car Waale - https://magenta-unicorn-017ab7.netlify.app/
 4. Sk Mart - https://singular-liger-3e8394.netlify.app/
 5. Task Manager - https://enchanting-llama-250936.netlify.app/
-6. Login/SignUp - https://splendorous-genie-4d5367.netlify.app/
+6. Login/SignUp_jsonserver - https://splendorous-genie-4d5367.netlify.app/
