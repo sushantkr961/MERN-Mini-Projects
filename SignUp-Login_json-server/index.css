@@ -45,8 +45,8 @@ a {
 
 button {
   border-radius: 20px;
-  border: 1px solid #ff4b2b;
-  background-color: #ff4b2b;
+  border: 1px solid #6495ed;
+  background-color: #6495ed;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -160,9 +160,9 @@ input {
 }
 
 .overlay {
-  background: #ff416c;
-  background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  background: #1e90ff;
+  background: -webkit-linear-gradient(to right, #1e90ff, #ff416c);
+  background: linear-gradient(to right, #1e90ff, #ff416c);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -209,21 +209,6 @@ input {
 
 .container.right-panel-active .overlay-right {
   transform: translateX(20%);
-}
-
-.social-container {
-  margin: 20px 0;
-}
-
-.social-container a {
-  border: 1px solid #dddddd;
-  border-radius: 50%;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 5px;
-  height: 40px;
-  width: 40px;
 }
 
 #msg,

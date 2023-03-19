@@ -7,7 +7,7 @@ const signMsg = document.getElementById("signMsg");
 
 const apiUrl = "https://loginsignupapi.onrender.com";
 
-// function to remove message after 2 seconds
+// function to remove message after 5 seconds
 function removeMessage(element) {
   setTimeout(() => {
     element.textContent = "";
