@@ -102,6 +102,9 @@ singInForm.addEventListener("submit", (e) => {
           signMsg.style.color = "teal";
           signMsg.textContent = "Login successful!";
           removeMessage(signMsg);
+          // console.log(user);
+          /** store the user to the local storage after successfull login */
+          localStorage.setItem("userDetails", JSON.stringify(user));
         } else {
           signMsg.style.color = "red";
           signMsg.textContent = "Invalid email or password.";
@@ -109,7 +112,7 @@ singInForm.addEventListener("submit", (e) => {
         }
       })
       .catch((error) => {
-        //   console.error(error);
+        // console.error(error);
         signMsg.style.color = "red";
         signMsg.textContent = "something went wrong.";
         removeMessage(signMsg);
