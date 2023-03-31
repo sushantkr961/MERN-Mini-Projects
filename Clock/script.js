@@ -18,7 +18,7 @@ let liveTime = () => {
   // console.log("hour", hour, "minute", minute, "second", second);
 
   /** converting in 1-12 only if hour is >12 */
-  hour = hour >= 12 ? hour - 12 : "";
+  hour = hour >= 12 ? hour - 12 : hour;
 
   /** showing 0 when time is less than 10 */
   hour = hour < 10 ? "0" + hour : hour;
