@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+/* Style for header and nav */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  margin: 0 20px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+}
+
+/* Style for container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial;
+  font-size: 100px;
+  color: #333;
+  animation: pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.container span {
+  margin: 0 10px;
+}
+
+.hh,
+.mm,
+.ss {
+  color: #333;
+}
+
+.am_pm {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+/* Style for day and date */
+.day,
+.date {
+  display: block;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.date {
+  font-size: 30px;
+  font-weight: bold;
+}
