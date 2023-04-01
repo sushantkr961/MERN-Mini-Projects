@@ -36,12 +36,14 @@ nav a {
 }
 
 .timings {
+  height: 400px;
+  width: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #fff;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 50%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
   font-size: 3em;

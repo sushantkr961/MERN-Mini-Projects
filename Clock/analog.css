@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+/* Style for header and nav */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 10px;
+  margin-bottom: 50px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  margin: 0 20px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+}
+
+#clockContainer {
+  border: 4px solid grey;
+  position: relative;
+  margin: auto;
+  height: 40vw;
+  width: 40vw;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* style for center of the circle */
+#clockContainer::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 1vw;
+  width: 1vw;
+  border-radius: 50%;
+  /* background-color: blue; */
+}
+
+#hour,
+#minute,
+#second {
+  position: absolute;
+  border-radius: 10px;
+  transform-origin: bottom;
+}
+
+#hour {
+  background: blue;
+  width: 1.8%;
+  height: 25%;
+  top: 25.6%;
+  left: 49.1%;
+  opacity: 0.8;
+}
+
+#minute {
+  background: blue;
+  width: 1.6%;
+  height: 30%;
+  top: 20.6%;
+  left: 49.3%;
+  opacity: 0.8;
+}
+
+#second {
+  background: red;
+  width: 1%;
+  height: 40%;
+  top: 10.55%;
+  left: 49.5%;
+  opacity: 0.8;
+}

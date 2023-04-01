@@ -62,16 +62,21 @@ nav a {
 }
 
 /* Style for day and date */
+
 .day,
 .date {
   display: block;
   font-size: 20px;
   font-family: Arial, sans-serif;
   text-align: center;
-  margin-top: 20px;
+}
+
+.day {
+  margin-top: 50px;
 }
 
 .date {
   font-size: 30px;
   font-weight: bold;
+  margin-top: 20px;
 }

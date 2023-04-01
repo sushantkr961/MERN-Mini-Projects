@@ -31,7 +31,7 @@ let liveTime = () => {
   ss.textContent = second;
 
   /** converting AM and PM */
-  am_pm.textContent = hour >= 12 ? "PM" : "AM";
+  am_pm.textContent = hour >= 12 ? "AM" : "PM";
 };
 
 setInterval(liveTime, 1000);
