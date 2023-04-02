@@ -36,7 +36,8 @@ nav a {
   height: 40vw;
   width: 40vw;
   border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px inset,
+    rgba(0, 0, 0, 0.24) 0px 3px 8px -3px inset;
 }
 
 /* style for center of the circle */
@@ -50,7 +51,7 @@ nav a {
   height: 1vw;
   width: 1vw;
   border-radius: 50%;
-  /* background-color: blue; */
+  /* background-color: black; */
 }
 
 #hour,
@@ -86,4 +87,13 @@ nav a {
   top: 10.55%;
   left: 49.5%;
   opacity: 0.8;
+}
+
+#brand {
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+  font-size: xx-small;
+  font-weight: 600;
+  margin-top: 30px;
 }

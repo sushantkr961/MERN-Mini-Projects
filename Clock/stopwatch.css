@@ -43,8 +43,10 @@ nav a {
   align-items: center;
   background-color: #fff;
   padding: 20px;
+  border: 4px solid grey;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px inset,
+    rgba(0, 0, 0, 0.24) 0px 3px 8px -3px inset;
   margin-bottom: 20px;
   font-size: 3em;
 }
