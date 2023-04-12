@@ -1,8 +1,38 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const login = () => {
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const response = await axios.post(`/user/login`, {
+        email,
+        password,
+      });
+      console.log(response.data);
+      setIsLoading(false);
+      toast.success("Login successful!");
+    } catch (error) {
+      console.log("error", error);
+      setIsLoading(false);
+      if (error.response?.status === 401) {
+        toast.error("Wrong credentials."); // Show an error toast message
+      } else {
+        toast.error(error.response?.data?.message ?? error.message); // Show an error toast message
+      }
+    }
+  };
+
   return (
     <div className="">
+      <ToastContainer />
       <div className="p-8 lg:w-1/2 mx-auto">
         <div className="bg-white rounded-t-lg p-8">
           <p className="text-center text-sm text-gray-400 font-light">
@@ -55,13 +85,16 @@ const login = () => {
           <p className="text-center text-sm text-gray-500 font-light">
             Or sign in with credentials
           </p>
-          <form className="mt-6">
+          <form className="mt-6" onSubmit={handleLogin}>
             <div className="relative">
               <input
                 className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
                 id="username"
                 type="text"
                 placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
               <div className="absolute left-0 inset-y-0 flex items-center">
                 <svg
@@ -81,6 +114,9 @@ const login = () => {
                 id="username"
                 type="text"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
               <div className="absolute left-0 inset-y-0 flex items-center">
                 <svg
@@ -94,8 +130,12 @@ const login = () => {
               </div>
             </div>
             <div className="flex items-center justify-center mt-8">
-              <button className="text-white py-2 px-4 uppercase rounded bg-indigo-500 hover:bg-indigo-600 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
-                Sign in
+              <button
+                className="text-white py-2 px-4 uppercase rounded bg-indigo-500 hover:bg-indigo-600 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+                type="submit"
+                disabled={isLoading}
+              >
+                {isLoading ? "Loading..." : "Sign in"}
               </button>
             </div>
           </form>
@@ -105,4 +145,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

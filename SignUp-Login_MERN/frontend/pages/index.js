@@ -1,6 +1,40 @@
+import axios from "axios";
+import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function Home() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const res = await axios.post(`/user/register`, {
+        name,
+        email,
+        password,
+      });
+      console.log(res.data);
+      setIsLoading(false);
+      toast.success("Registration successful!");
+    } catch (error) {
+      console.log("error", error);
+      setIsLoading(false);
+      if (error.response?.status === 400) {
+        toast.error("User already exists"); // Show an error toast message
+      } else {
+        toast.error(error.response?.data?.message ?? error.message); // Show an error toast message
+      }
+    }
+  };
+
   return (
     <main>
+      <ToastContainer />
       <div className="">
         <div className="p-8 lg:w-1/2 mx-auto">
           <div className="bg-white rounded-t-lg p-8">
@@ -54,13 +88,16 @@ export default function Home() {
             <p className="text-center text-sm text-gray-500 font-light">
               Or sign in with credentials
             </p>
-            <form className="mt-6">
+            <form className="mt-6" onSubmit={handleRegister}>
               <div className="relative">
                 <input
                   className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
                   id="username"
                   type="text"
                   placeholder="Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
                 />
                 <div className="absolute left-0 inset-y-0 flex items-center">
                   <svg
@@ -79,6 +116,9 @@ export default function Home() {
                   id="username"
                   type="text"
                   placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
                 <div className="absolute left-0 inset-y-0 flex items-center">
                   <svg
@@ -98,6 +138,9 @@ export default function Home() {
                   id="username"
                   type="text"
                   placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
                 <div className="absolute left-0 inset-y-0 flex items-center">
                   <svg
@@ -111,8 +154,12 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex items-center justify-center mt-8">
-                <button className="text-white py-2 px-4 uppercase rounded bg-indigo-500 hover:bg-indigo-600 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
-                  Sign in
+                <button
+                  className="text-white py-2 px-4 uppercase rounded bg-indigo-500 hover:bg-indigo-600 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+                  type="submit"
+                  disabled={isLoading}
+                >
+                  {isLoading ? "Loading..." : "Register"}
                 </button>
               </div>
             </form>
