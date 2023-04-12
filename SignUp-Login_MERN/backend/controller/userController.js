@@ -6,7 +6,8 @@ const nodemailer = require("nodemailer");
 /** REGISTER */
 const registerUser = async (req, res, next) => {
   try {
-    const { name, email, password } = req.body;
+    let { name, email, password } = req.body;
+    password = String(password); // Convert password to a string
     if (!name || !email || !password) {
       return res.status(400).json({ message: "All inputs are required" });
     }
@@ -35,6 +36,7 @@ const loginUser = async (req, res, next) => {
   try {
     let { email, password } = req.body;
     email = email.toLowerCase();
+    password = String(password); // Convert password to a string
     if (!email || !password) {
       return res.status(400).json({ message: "All inputs are required" });
     }
@@ -89,90 +91,6 @@ const logoutUser = async (req, res, next) => {
   }
 };
 
-// /** FORGOT PASSWORD */
-// const forgotPassword = async (req, res, next) => {
-//   try {
-//     let { email } = req.body;
-//     email = email.toLowerCase();
-//     const user = await User.findOne({ email });
-//     // console.log(user);
-//     if (!user) {
-//       return res.status(401).json({ message: "User does not exist." });
-//     } else {
-//       const resetToken = jwt.sign(
-//         { userId: user._id },
-//         process.env.RESET_SECRET_KEY || "hello",
-//         { expiresIn: "20m" }
-//       );
-//       user.resetToken = resetToken;
-//       user.resetTokenExpiration = Date.now() + 20 * 60 * 1000;
-//       await user.save();
-
-//       // create nodemailer transporter
-//       let transporter = nodemailer.createTransport({
-//         host: process.env.SMTP_HOST || "smtp.ethereal.email",
-//         port: process.env.SMTP_PORT || 587,
-//         auth: {
-//           user: process.env.SMTP_EMAIL || "kavon16@ethereal.email",
-//           pass: process.env.SMTP_PASSWORD || "bwAFqjrTey9GAd3zzd",
-//         },
-//       });
-
-//       // send reset password email to user
-//       let info = await transporter.sendMail({
-//         from: `"Login SignUp" <${
-//           process.env.SMTP_EMAIL || "kavon16@ethereal.email"
-//         }>`,
-//         to: email,
-//         subject: "Password Reset Request",
-//         // text: `Click on the following link to reset your password: ${process.env.CLIENT_URL}/reset-password/${resetToken}`,
-//         html: `
-//           <p>Hello ${user.name},</p>
-//           <p>You have requested to reset your password. Please click on the following link to reset your password:</p>
-//           <a href="${process.env.APP_BASE_URL}/reset-password/${resetToken}">Reset Password</a>
-//           <p>The link is valid for 20 minutes. If you did not request a password reset, please ignore this email.</p>
-//           <p>Best Regards,</p>
-//           <p>Your App Team</p>
-//         `,
-//       });
-
-//       return res.json({
-//         message: "Password reset link sent to your email.",
-//         info,
-//       });
-//     }
-//   } catch (error) {
-//     next(error);
-//   }
-// };
-
-// /** RESET PASSWORD */
-// const resetPassword = async (req, res, next) => {
-//   try {
-//     const { resetToken, newPassword } = req.body;
-//     if (!resetToken || !newPassword) {
-//       return res.status(400).json({ message: "All inputs are required" });
-//     }
-//     const decoded = jwt.verify(
-//       resetToken,
-//       process.env.RESET_SECRET_KEY || "hello"
-//     );
-//     const user = await User.findById(decoded.userId);
-//     if (!user || user.resetToken !== resetToken) {
-//       return res.status(401).json({ message: "Invalid or Expired Token." });
-//     } else {
-//       const hashedPassword = await bcrypt.hash(newPassword, 10);
-//       user.password = hashedPassword;
-//       user.resetToken = null;
-//       user.resetTokenExpiration = null;
-//       await user.save();
-//       return res.json({ success: "Password reset successful." });
-//     }
-//   } catch (error) {
-//     next(error);
-//   }
-// };
-
 /** FORGOT PASSWORD */
 const forgotPassword = async (req, res, next) => {
   try {
@@ -183,7 +101,16 @@ const forgotPassword = async (req, res, next) => {
       return res.status(401).json({ message: "User does not exist." });
     } else {
       // Generate OTP
-      const otp = Math.floor(100000 + Math.random() * 900000);
+      function generateRandomOtp() {
+        const chars =
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let result = "";
+        for (let i = 0; i < 6; i++) {
+          result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return result;
+      }
+      const otp = generateRandomOtp();
       // Set OTP as cookie
       res.cookie("reset_password_otp", otp, {
         maxAge: 5 * 60 * 1000, // 5 minutes
@@ -216,10 +143,6 @@ const forgotPassword = async (req, res, next) => {
           });
         } else {
           console.log("Message sent: %s", info.messageId);
-          // Save OTP in database with a 5-minute expiration time
-          // user.otp = otp;
-          // user.otpExpiration = Date.now() + 5 * 60 * 1000;
-          // user.save();
           return res.json({
             message: "OTP sent to email.",
             info,
@@ -237,25 +160,32 @@ const resetPassword = async (req, res, next) => {
   try {
     let { email, otp, newPassword } = req.body;
     email = email.toLowerCase();
+    // Check if email and OTP are provided
+    if (!email || !otp || !newPassword) {
+      return res.status(400).json({ message: "All inputs are required" });
+    }
+    // Find the user with the given email
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ message: "User does not exist." });
-    } else {
-      // Retrieve OTP from cookie
-      const savedOtp = req.cookies.reset_password_otp;
-      console.log(savedOtp === otp, typeof savedOtp, typeof otp);
-      if (savedOtp === otp) {
-        // Hash new password and save it to database
-        const hashedPassword = await bcrypt.hash(newPassword, 10);
-        user.password = hashedPassword;
-        user.save();
-        // Clear OTP cookie
-        res.clearCookie("reset_password_otp");
-        return res.json({ message: "Password has been reset." });
-      } else {
-        return res.status(401).json({ message: "OTP is incorrect." });
-      }
     }
+    // Check if OTP is correct
+    const resetPasswordOTP = req.cookies.reset_password_otp;
+    console.log(resetPasswordOTP, otp);
+    if (!resetPasswordOTP || resetPasswordOTP !== otp) {
+      return res.status(401).json({ message: "Invalid OTP" });
+    }
+    // Convert newPassword to a string
+    newPassword = String(newPassword);
+    // Hash the new password
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+    // Update the user's password
+    user.password = hashedPassword;
+    await user.save();
+    // Remove the reset password OTP cookie
+    res.clearCookie("reset_password_otp");
+    return res.json({ message: "Password reset successful." });
   } catch (error) {
     next(error);
   }
