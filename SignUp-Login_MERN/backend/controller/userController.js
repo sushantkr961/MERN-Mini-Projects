@@ -126,8 +126,8 @@ const forgotPassword = async (req, res, next) => {
         },
       });
       const mailOptions = {
-        from: `"${process.env.EMAIL_SENDER_NAME || "susu"}" <${
-          process.env.EMAIL_USERNAME || "susu@gmail.com"
+        from: `"${process.env.EMAIL_SENDER_NAME || "Sushant Kumar"}" <${
+          process.env.EMAIL_USERNAME || "sushant@gmail.com"
         }>`,
         to: email,
         subject: "Password Reset OTP",
@@ -160,31 +160,39 @@ const resetPassword = async (req, res, next) => {
   try {
     let { email, otp, newPassword } = req.body;
     email = email.toLowerCase();
+
     // Check if email and OTP are provided
     if (!email || !otp || !newPassword) {
       return res.status(400).json({ message: "All inputs are required" });
     }
+
     // Find the user with the given email
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ message: "User does not exist." });
     }
+
     // Check if OTP is correct
     const resetPasswordOTP = req.cookies.reset_password_otp;
     console.log(resetPasswordOTP, otp);
     if (!resetPasswordOTP || resetPasswordOTP !== otp) {
       return res.status(401).json({ message: "Invalid OTP" });
     }
+
     // Convert newPassword to a string
     newPassword = String(newPassword);
+
     // Hash the new password
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+
     // Update the user's password
     user.password = hashedPassword;
     await user.save();
+
     // Remove the reset password OTP cookie
     res.clearCookie("reset_password_otp");
+
     return res.json({ message: "Password reset successful." });
   } catch (error) {
     next(error);
