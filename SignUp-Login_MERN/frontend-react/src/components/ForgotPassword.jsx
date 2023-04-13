@@ -8,7 +8,7 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmt = async (e) => {
     e.preventDefault();
@@ -22,22 +22,16 @@ const ForgotPassword = () => {
       setIsLoading(false);
       if (response.status === 200 || response.status === 201) {
         toast.success("OTP sent to email."); // Show a success toast message
-        setTimeout(() => {
-          navigate("/reset-password");
-        }, 1000);
+        // setTimeout(() => {
+        //   navigate("/reset-password");
+        // }, 1000);
       } else {
-        toast.error("Something went wrong."); // Show an error toast message
+        toast.error("Something went wrong.");
       }
     } catch (error) {
       console.log("error", error);
       setIsLoading(false);
-      if (error.response?.status === 401) {
-        toast.error("User does not exist."); // Show an error toast message
-      } else if (error.response?.status === 400) {
-        toast.error("Bad request."); // Show an error toast message
-      } else {
-        toast.error(error.response?.data?.message ?? error.message); // Show an error toast message
-      }
+      toast.error(error.response?.data?.message ?? error.message);
     }
   };
 

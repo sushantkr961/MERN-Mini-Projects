@@ -116,6 +116,7 @@ const forgotPassword = async (req, res, next) => {
         maxAge: 5 * 60 * 1000, // 5 minutes
         httpOnly: true, // cookie cannot be accessed by client-side JavaScript
       });
+
       // Send OTP to user's email
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST || "smtp.ethereal.email",
@@ -162,7 +163,7 @@ const resetPassword = async (req, res, next) => {
     email = email.toLowerCase();
 
     // Convert newPassword to a string
-    newPassword = String(newPassword);
+    // newPassword = String(newPassword);
 
     // Check if email and OTP are provided
     if (!email || !otp || !newPassword) {

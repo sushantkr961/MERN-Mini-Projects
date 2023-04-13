@@ -23,11 +23,7 @@ const Login = () => {
     } catch (error) {
       console.log("error", error);
       setIsLoading(false);
-      if (error.response?.status === 401) {
-        toast.error("Wrong credentials."); // Show an error toast message
-      } else {
-        toast.error(error.response?.data?.message ?? error.message); // Show an error toast message
-      }
+      toast.error(error.response?.data?.message ?? error.message);
     }
   };
 
@@ -95,7 +91,6 @@ const Login = () => {
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
               />
               <div className="absolute left-0 inset-y-0 flex items-center">
                 <svg
@@ -117,7 +112,6 @@ const Login = () => {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
               />
               <div className="absolute left-0 inset-y-0 flex items-center">
                 <svg

@@ -24,11 +24,7 @@ export default function Register() {
     } catch (error) {
       console.log("error", error);
       setIsLoading(false);
-      if (error.response?.status === 400) {
-        toast.error("User already exists"); // Show an error toast message
-      } else {
-        toast.error(error.response?.data?.message ?? error.message); // Show an error toast message
-      }
+      toast.error(error.response?.data?.message ?? error.message);
     }
   };
 
