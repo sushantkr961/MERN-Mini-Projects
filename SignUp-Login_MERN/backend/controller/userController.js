@@ -131,7 +131,7 @@ const forgotPassword = async (req, res, next) => {
         }>`,
         to: email,
         subject: "Password Reset OTP",
-        text: `Your OTP for resetting password is ${otp}. It is valid for 5 minutes.`,
+        text: `Your OTP for resetting password is - ${otp}. It is valid for 5 minutes.`,
       };
 
       transporter.sendMail(mailOptions, (error, info) => {
@@ -142,7 +142,7 @@ const forgotPassword = async (req, res, next) => {
             error,
           });
         } else {
-          console.log("Message sent: %s", info.messageId);
+          // console.log("Message sent: %s", info.messageId);
           return res.json({
             message: "OTP sent to email.",
             info,
@@ -161,6 +161,9 @@ const resetPassword = async (req, res, next) => {
     let { email, otp, newPassword } = req.body;
     email = email.toLowerCase();
 
+    // Convert newPassword to a string
+    newPassword = String(newPassword);
+
     // Check if email and OTP are provided
     if (!email || !otp || !newPassword) {
       return res.status(400).json({ message: "All inputs are required" });
@@ -174,13 +177,10 @@ const resetPassword = async (req, res, next) => {
 
     // Check if OTP is correct
     const resetPasswordOTP = req.cookies.reset_password_otp;
-    console.log(resetPasswordOTP, otp);
+    // console.log(resetPasswordOTP, otp);
     if (!resetPasswordOTP || resetPasswordOTP !== otp) {
       return res.status(401).json({ message: "Invalid OTP" });
     }
-
-    // Convert newPassword to a string
-    newPassword = String(newPassword);
 
     // Hash the new password
     const saltRounds = 10;
@@ -193,7 +193,7 @@ const resetPassword = async (req, res, next) => {
     // Remove the reset password OTP cookie
     res.clearCookie("reset_password_otp");
 
-    return res.json({ message: "Password reset successful." });
+    return res.status(200).json({ message: "Password reset successful." });
   } catch (error) {
     next(error);
   }
