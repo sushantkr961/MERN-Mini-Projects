@@ -1,0 +1,113 @@
+/* ---- RESET/BASIC STYLING ---- */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.board {
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+
+  background-image: url(data:image/jpeg;base64,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);
+  background-position: center;
+  background-size: cover;
+}
+
+/* ---- FORM ---- */
+#todo-form {
+  padding: 32px 32px 0;
+}
+
+#todo-form input {
+  padding: 12px;
+  margin-right: 12px;
+  width: 225px;
+
+  border-radius: 4px;
+  border: none;
+
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  background: white;
+
+  font-size: 14px;
+  outline: none;
+}
+
+#todo-form button {
+  padding: 12px 32px;
+
+  border-radius: 4px;
+  border: none;
+
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  background: #ffffff;
+  color: black;
+
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ---- BOARD ---- */
+.lanes {
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  gap: 16px;
+
+  padding: 24px 32px;
+
+  overflow: scroll;
+  height: 100%;
+}
+
+.heading {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.swim-lane {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  background: #f4f4f4;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+
+  padding: 12px;
+  border-radius: 4px;
+  width: 225px;
+  min-height: 120px;
+
+  flex-shrink: 0;
+}
+
+.task {
+  background: white;
+  color: black;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+
+  padding: 12px;
+  border-radius: 4px;
+
+  font-size: 16px;
+  cursor: move;
+}
+
+.is-dragging {
+  scale: 1.05;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+  background: rgb(50, 50, 50);
+  color: white;
+}

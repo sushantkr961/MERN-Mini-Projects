@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag & Drop by Sk</title>
+
+    <link rel="stylesheet" href="index.css" />
+    <script src="drag.js" defer></script>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div class="board">
+      <form id="todo-form">
+        <input type="text" placeholder="Add New Task" id="todo-input" />
+        <input type="submit" value="Add + " />
+      </form>
+
+      <div class="lanes">
+        <div
+          class="swim-lane"
+          id="todo-lane"
+          style="background-color: lightblue"
+        >
+          <h3 class="heading">Task</h3>
+
+          <p class="task" draggable="true">Eat</p>
+          <p class="task" draggable="true">Code</p>
+        </div>
+
+        <div class="swim-lane" style="background-color: lightcoral">
+          <h3 class="heading">Process</h3>
+
+          <p class="task" draggable="true">Sleep</p>
+        </div>
+
+        <div class="swim-lane" style="background-color: lightgreen">
+          <h3 class="heading">Completed</h3>
+
+          <p class="task" draggable="true">Repeat</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
