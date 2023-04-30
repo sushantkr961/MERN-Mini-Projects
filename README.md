@@ -10,4 +10,4 @@
 - Task Manager - https://enchanting-llama-250936.netlify.app/
 - Login/SignUp_jsonserver - https://splendorous-genie-4d5367.netlify.app/
 - Clock - https://brilliant-mermaid-4fdda1.netlify.app/
-- Drag & Drop using JS = https://friendly-speculoos-39a214.netlify.app/
+- Drag & Drop using JS - https://friendly-speculoos-39a214.netlify.app/
