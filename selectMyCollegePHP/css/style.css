@@ -1,0 +1,243 @@
+* {
+  font-family: "PT Serif", serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.slider {
+  position: relative;
+  background: rgb(0 0 0);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  height: 60vh;
+  overflow: hidden;
+}
+.slider img{
+  aspect-ratio:  160/78;
+}
+.slider-top {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+#section-1 .card {
+  border-radius: 28px;
+  box-shadow: 0px 3px 14px #00000029;
+  border: none;
+}
+.gmtbc {
+  border-radius: 35px;
+  background: #fff;
+  margin-top: -40px;
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  z-index: 2;
+  border: 2px solid #002f26;
+  padding: 15px 0px 40px 0px;
+}
+.gmtbc h1 {
+  font-size: 52px;
+}
+.cef {
+  width: 472px;
+  border-radius: 35px !important;
+  background: #002f26;
+  color: #fff;
+  z-index: 2;
+  border: 2px solid #002f26;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: -10px;
+}
+.cef a h1 {
+  font-size: 30px;
+}
+.cef span {
+  font-size: x-large;
+}
+.card-img {
+  width: 30%;
+}
+.form-control {
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 25px;
+  /* margin-bottom: 15px; */
+  padding: 12px;
+  font-size: 16px;
+}
+.btn {
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 25px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+}
+.btn-h {
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 25px;
+  width: 50%;
+  padding: 12px;
+  font-size: 16px;
+}
+.bg-gr {
+  background: #002f26;
+  color: #fff;
+  width: fit-content;
+}
+.bgr-gr {
+  background: #fff;
+  color: #002f26;
+}
+.fimg {
+  border-radius: 100%;
+  width: 120px;
+  height: 120px;
+  box-shadow: 0px 3px 6px #00000029;
+  padding: 20px;
+}
+
+.eligibility_btn {
+  backdrop-filter: blur(50px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 2rem;
+  padding: 15px 65px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.eligibility_btn:hover {
+  transform: scale(1.1);
+}
+
+.sk-confused {
+  font-size: 26px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.slider-top .form-select:nth-child(2) {
+  border-radius: 0 20px 20px 0;
+}
+.slider-top .form-select {
+  height: 30px;
+  line-height: 14px;
+  border-radius: 20px 0 0 20px;
+  max-width: 323px;
+}
+.slider-top .btn-light {
+  height: 30px;
+  line-height: 14px;
+  width: 120px;
+  padding: 0;
+}
+.slider-top .fee .btn {
+  background-color: #fff;
+  width: 200px;
+  height: 40px;
+  padding: 0;
+  line-height: 40px;
+  opacity: 0.7;
+}
+
+.smallText {
+  font-size: 12px;
+  color: #f7931e;
+}
+.asideBlog .btn {
+  background-color: #f7931e;
+}
+.feeStruct a {
+  background-color: #f7931e;
+}
+.CourseBox {
+  width: 33.33%;
+}
+.CourseBox p {
+  margin: 0;
+}
+
+.sliderContainer {
+  width: 100%;
+}
+
+.sliderRange {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  background: #ddd;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.sliderRange:hover {
+  opacity: 1;
+}
+
+.sliderRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #ff8900;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.sliderRange::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #ff8900;
+  cursor: pointer;
+}
+
+.sk-small {
+  border: none;
+  height: 400px;
+}
+.sk-matched {
+  border: 2px solid #002f26;
+  width: 70%;
+  background-color: white;
+}
+.skCrousel img {
+  padding: 0px;
+  margin: 1rem;
+}
+.skCrousel {
+  height: 300px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  top: -64px;
+  z-index: -1;
+  border: 2px solid #707070;
+}
+
+.skCrousel > div {
+  padding: 20px 15px;
+}
+.sk-free {
+  background: #002f26;
+  border: 2px solid #002f26;
+  width: max-content;
+  padding: 10px 20px;
+  margin-left: 95px;
+}
+/* fillter box */
+.fillterBox {
+  width: 583px;
+  right: 5%;
+  background: rgb(248, 249, 250);
+  z-index: 999;
+}

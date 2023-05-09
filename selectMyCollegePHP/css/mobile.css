@@ -1,0 +1,67 @@
+@media screen and (max-width: 486px) {
+  .slider {
+    position: relative;
+    background: rgb(0 0 0);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    height: fit-content;
+    overflow: hidden;
+  }
+  .nav-item {
+    width: 100%;
+    box-shadow: none;
+    margin: 2px 0;
+  }
+  .slider-top .form-select {
+    margin: 10px;
+  }
+  .slider-top .btn-light {
+    margin: 10px auto;
+  }
+  .goBackICon {
+    display: none;
+  }
+  .coursesText {
+    text-align: center;
+    width: 100;
+    justify-content: center;
+  }
+  .roumbsImg {
+    display: none;
+  }
+  .fee a,
+  .fee p {
+    margin: auto;
+  }
+
+  #section-1 .card {
+    border-radius: 11px;
+    box-shadow: 0px 3px 14px #00000029;
+    border: none;
+  }
+  .sk-city {
+    flex-direction: column;
+  }
+  .elfo {
+    box-shadow: 5px 0px 10px #00000029;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .card-img {
+    width: 100%;
+  }
+  .sk-small {
+    padding: 10px;
+  }
+  .sk-matched {
+    border: none;
+    width: 100%;
+  }
+  .sk-eligible {
+    background: #002f26;
+    border: 2px solid #002f26;
+    width: max-content;
+    padding: 10px 20px;
+  }
+}
