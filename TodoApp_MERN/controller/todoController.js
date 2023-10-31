@@ -9,7 +9,6 @@ const addTask = async (req, res) => {
 
     if (!existingUser) {
       return res.status(400).json({
-        type: "danger",
         message: "User not found",
       });
     }
@@ -24,13 +23,11 @@ const addTask = async (req, res) => {
     await existingUser.save();
 
     return res.status(200).json({
-      type: "success",
       message: "Task Created successfully",
       todo: newTask,
     });
   } catch (error) {
     return res.status(500).json({
-      type: "danger",
       message: "Task creation failed",
     });
   }
@@ -44,23 +41,19 @@ const updateTask = async (req, res) => {
       const task = await Todo.findByIdAndUpdate(req.params.id, { title, body });
       if (!task) {
         return res.status(404).json({
-          type: "danger",
           message: "Task not found",
         });
       }
       return res.status(200).json({
-        type: "success",
         message: "Task updated successfully",
         todo: task,
       });
     }
     return res.status(404).json({
-      type: "danger",
       message: "User not found",
     });
   } catch (error) {
     return res.status(500).json({
-      type: "danger",
       message: "Task update failed",
     });
   }
@@ -76,14 +69,11 @@ const deleteTask = async (req, res) => {
     );
     if (existingUser) {
       await Todo.findByIdAndDelete(taskId).then(() =>
-        res
-          .status(200)
-          .json({ type: "success", message: "Task deleted successfully" })
+        res.status(200).json({ message: "Task deleted successfully" })
       );
     }
   } catch (error) {
     return res.status(500).json({
-      type: "danger",
       message: "Task deletion failed",
     });
   }

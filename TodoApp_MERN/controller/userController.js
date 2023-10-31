@@ -8,7 +8,6 @@ const register = async (req, res) => {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({
-        type: "danger",
         message: "Email already exists",
       });
     }
@@ -20,13 +19,11 @@ const register = async (req, res) => {
     });
 
     return res.status(200).json({
-      type: "success",
       message: "User Created successfully",
       user: newUser,
     });
   } catch (error) {
     return res.status(400).json({
-      type: "danger",
       message: "Registration failed",
     });
   }
@@ -40,7 +37,6 @@ const login = async (req, res) => {
 
     if (!user) {
       return res.status(401).json({
-        type: "danger",
         message: "Invalid email or password",
       });
     }
@@ -49,19 +45,16 @@ const login = async (req, res) => {
 
     if (!passwordMatch) {
       return res.status(401).json({
-        type: "danger",
         message: "Invalid email or password",
       });
     }
 
     return res.status(200).json({
-      type: "success",
       message: "Login successful",
       user: user,
     });
   } catch (error) {
     return res.status(500).json({
-      type: "danger",
       message: "Login failed",
     });
   }
