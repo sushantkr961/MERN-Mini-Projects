@@ -1,18 +1,16 @@
 import React from "react";
 import "./App.css";
-import Signin from "./Pages/Signin";
-import Login from "./Pages/Login";
-import Navbar from "./components/Navbar";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Todo from "./components/Todo";
-import { ToastContainer } from "react-toastify";
+
+import Login from "./pages/Login";
+import Signin from "./pages/Signup";
+import Todo from "./pages/Todo";
+
 
 function App() {
   return (
     <div className="App">
-      <ToastContainer />
       <BrowserRouter basename="/">
-        <Navbar />
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Signin />} />
