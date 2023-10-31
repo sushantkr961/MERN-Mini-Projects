@@ -10,7 +10,7 @@ const Todo = () => {
   const location = useLocation();
   const user = location.state?.user;
 
-  // Fetch tasks from your API when the component mounts
+
   useEffect(() => {
     fetchTasks();
   }, []);
@@ -34,7 +34,6 @@ const Todo = () => {
 
   const handleAddOrUpdateTodo = () => {
     if (editingTask) {
-      // Update the task
       const updatedTaskData = { title, body, email: user.email };
       fetch(`http://localhost:8080/api/task/update/${editingTask._id}`, {
         method: "PUT",
@@ -54,7 +53,6 @@ const Todo = () => {
           console.error("Error updating task:", error);
         });
     } else {
-      // Add a new task
       const taskData = { title, body, email: user.email };
       fetch("http://localhost:8080/api/task/add", {
         method: "POST",
