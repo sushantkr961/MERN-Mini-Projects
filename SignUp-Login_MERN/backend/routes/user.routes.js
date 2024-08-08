@@ -9,6 +9,9 @@ const {
 const router = express.Router();
 
 router.post("/register", registerUser);
+router.get("/register", ()=>{
+  res.json('helo')
+});
 router.post("/login", loginUser);
 router.post("/logout", logoutUser);
 router.post("/forgot-password", forgotPassword);
